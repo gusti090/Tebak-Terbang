@@ -1,0 +1,278 @@
+:root {
+    --primary: #6c5ce7;
+    --secondary: #00cec9;
+    --accent: #fdcb6e;
+    --danger: #ff7675;
+    --success: #00b894;
+    --dark: #2d3436;
+    --light: #dfe6e9;
+    --glass-bg: rgba(255, 255, 255, 0.92);
+    --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #74b9ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container dengan efek Kaca */
+.container {
+    background: var(--glass-bg);
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 35px;
+    box-shadow: 
+        0 25px 60px rgba(0,0,0,0.2),
+        inset 0 0 0 1px var(--glass-border);
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(15px);
+    max-height: 90vh;
+    overflow-y: auto;
+    transition: all 0.4s ease;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    /* Hide scrollbar */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+.container::-webkit-scrollbar { 
+    display: none; 
+}
+
+h1 { 
+    color: var(--primary); 
+    margin-bottom: 0.5rem; 
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Hero / Welcome Styles */
+/* --- BAGIAN YANG DIPERBAIKI --- */
+.hero-title {
+    background: linear-gradient(to right, #6c5ce7, #ff7675);
+    
+    /* Standard & Vendor Prefix */
+    -webkit-background-clip: text;
+    background-clip: text; /* Ditambahkan agar support Firefox */
+    
+    -webkit-text-fill-color: transparent;
+    color: transparent;    /* Fallback standar */
+    
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* ----------------------------- */
+
+.hero-icon {
+    font-size: 4rem;
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.15));
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.hero-icon:hover { transform: scale(1.1) rotate(10deg); }
+
+/* Info Box */
+.info-box {
+    background: #fff0f0;
+    border: 3px dashed #ff7675;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 20px 0;
+    box-shadow: 0 10px 0px rgba(255, 118, 117, 0.2);
+    transition: all 0.3s;
+    position: relative;
+    transform: rotate(-1deg);
+}
+.info-box:hover { transform: scale(1.02) rotate(1deg); }
+
+/* Buttons */
+.btn {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.1s;
+    margin: 10px 5px;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-start-hero {
+    background: linear-gradient(45deg, #ff9f43, #ee5253);
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 0px #c0392b;
+    border: 2px solid white;
+    animation: pulse-scale 2s infinite;
+}
+.btn-start-hero:hover { transform: translateY(-2px); box-shadow: 0 12px 0px #c0392b; }
+.btn-start-hero:active { transform: translateY(10px); box-shadow: 0 0px 0px #c0392b; }
+
+.btn-primary { background: #6c5ce7; color: white; box-shadow: 0 6px 0 #4834d4; }
+.btn-primary:active { transform: translateY(6px); box-shadow: 0 0px 0 #4834d4; }
+
+.btn-secondary { background: #00cec9; color: white; box-shadow: 0 6px 0 #00b5b0; }
+.btn-secondary:active { transform: translateY(6px); box-shadow: 0 0px 0 #00b5b0; }
+
+.btn-danger { background: #ff7675; color: white; box-shadow: 0 6px 0 #d63031; }
+.btn-danger:active { transform: translateY(6px); box-shadow: 0 0px 0 #d63031; }
+
+.btn-continue { 
+    background: #00b894; color: white;
+    margin-top: 15px;
+    box-shadow: 0 6px 0 #006266;
+    animation: pulse 1.5s infinite;
+}
+.btn-continue:active { transform: translateY(6px); box-shadow: none; }
+
+.btn-clue {
+    background: #ffeaa7; color: #d35400;
+    font-size: 12px; padding: 8px 15px;
+    box-shadow: 0 4px 0 #e1b12c;
+    width: auto;
+}
+.btn-clue:active { transform: translateY(4px); box-shadow: none; }
+
+/* Inputs */
+input[type="text"] {
+    width: 80%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 3px solid #dfe6e9;
+    border-radius: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+    text-align: center;
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: var(--dark);
+}
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 8px 0 rgba(108, 92, 231, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Lives & HUD */
+#lives-container {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 16px;
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 50px;
+    color: var(--danger);
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(255, 118, 117, 0.4);
+    z-index: 10;
+    display: flex; align-items: center; gap: 5px;
+}
+.heart-icon { animation: heartbeat 1.5s infinite; }
+
+/* Choices Grid */
+.choices-grid {
+    display: flex; flex-direction: column; gap: 10px; margin-top: 20px;
+}
+.choice-btn {
+    background-color: white; color: var(--dark);
+    border: 2px solid #dfe6e9;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: 15px; cursor: pointer;
+    transition: all 0.2s;
+    text-align: left; font-weight: 600;
+    box-shadow: 0 4px 0 #b2bec3;
+    font-family: 'Poppins', sans-serif;
+}
+.choice-btn:active { transform: translateY(4px); box-shadow: none; }
+.choice-btn.correct { background: #00b894; color: white; border-color: #00b894; box-shadow: 0 4px 0 #006266; }
+.choice-btn.wrong { background: #ff7675; color: white; border-color: #ff7675; box-shadow: 0 4px 0 #d63031; animation: shake 0.4s; }
+
+/* Game Canvas Area */
+#game-area {
+    width: 100%;
+    height: 350px;
+    background: #2d3436;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 0 rgba(0,0,0,0.1);
+    border: 4px solid white;
+}
+canvas { display: block; width: 100%; height: 100%; }
+
+#game-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    background: rgba(45, 52, 54, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 20;
+    flex-direction: column;
+}
+
+/* Feedback Messages */
+#message {
+    margin-top: 15px; font-weight: 700; font-size: 1rem;
+    min-height: 28px; white-space: pre-wrap;
+    padding: 15px; border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.success-text { background: #d4edda; color: #155724; border: 2px solid #c3e6cb; }
+.error-text { background: #fff0f0; color: #d63031; border: 2px solid #ff7675; }
+
+/* Clue */
+#clue-text {
+    color: #d35400; font-style: italic; font-weight: 600;
+    margin-top: 10px; background: #fff8e1;
+    padding: 10px; border-radius: 10px;
+    border: 2px dashed var(--accent);
+    font-size: 0.9rem; animation: fadeIn 0.5s;
+}
+
+/* Animations */
+@keyframes heartbeat { 0%, 30%, 60% { transform: scale(1); } 15%, 45% { transform: scale(1.3); } }
+@keyframes pulse-scale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+@keyframes popIn { 0% { opacity:0; transform: scale(0.5); } 100% { opacity:1; transform: scale(1); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.hidden { display: none !important; }
+.pop-in { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+.confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
